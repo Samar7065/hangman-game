@@ -1,0 +1,31 @@
+```cpp
+#include <gtest/gtest.h>
+
+// Function to test
+std::string colourProductionBiggMall(int input) {
+    if (input < 0) {
+        return "Invalid input";
+    } else if (input == 0) {
+        return "No colour produced";
+    } else {
+        return "Colour produced successfully";
+    }
+}
+
+// Test case
+TEST(ColourProductionBiggMallTest, NegativeInput) {
+    EXPECT_EQ(colourProductionBiggMall(-5), "Invalid input");
+}
+
+TEST(ColourProductionBiggMallTest, ZeroInput) {
+    EXPECT_EQ(colourProductionBiggMall(0), "No colour produced");
+}
+
+TEST(ColourProductionBiggMallTest, PositiveInput) {
+    EXPECT_EQ(colourProductionBiggMall(10), "Colour produced successfully");
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
